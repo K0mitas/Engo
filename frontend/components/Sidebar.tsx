@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 const menuItems = [
   { to: '/projects', label: 'Проекты', icon: '🎬' },
   { to: '/characters', label: 'Персонажи', icon: '👤' },
+  {to: '/account',    label: 'Аккаунт',    icon: '🙍' },
   { to: '/settings', label: 'Настройки', icon: '⚙️' },
 ];
 

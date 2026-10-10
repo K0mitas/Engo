@@ -2641,3 +2641,295 @@ a {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==================== Account ==================== */
+.account {
+  flex: 1;
+  min-height: 0;
+  padding: 32px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.account__tabs {
+  display: flex;
+  gap: 4px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 4px;
+  margin-bottom: 24px;
+}
+
+.account__tab {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-dim);
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  transition: color 0.15s, background 0.15s;
+}
+
+.account__tab:hover {
+  color: var(--text);
+}
+
+.account__tab--active {
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+.account__content {
+  width: 100%;
+  max-width: 420px;
+}
+
+.account__form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.account__title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.account__subtitle {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+
+.account__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.account__label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.account__input {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  color: var(--text);
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.account__input:focus {
+  border-color: var(--accent);
+}
+
+.account__input::placeholder {
+  color: var(--text-muted);
+}
+
+.account__submit {
+  background: var(--accent);
+  color: #fff;
+  padding: 11px 16px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 4px;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+.account__submit:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.account__submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.account__footer {
+  font-size: 12px;
+  color: var(--text-dim);
+  text-align: center;
+  margin-top: 4px;
+}
+
+.account__link {
+  color: var(--accent-hover);
+  font-size: 12px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.account__link:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+/* ---------- Профиль: аватар ---------- */
+.account__avatar-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.account__avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #0a0a10;
+  flex-shrink: 0;
+  border: 2px solid var(--border);
+}
+
+.account__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.account__avatar-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ---------- Кнопки ---------- */
+.account__btn {
+  background: var(--accent);
+  color: #fff;
+  padding: 9px 14px;
+  border-radius: var(--radius);
+  font-size: 12px;
+  font-weight: 500;
+  transition: background 0.15s, opacity 0.15s, border-color 0.15s;
+}
+
+.account__btn:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.account__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.account__btn--ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.account__btn--ghost:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.account__btn--danger {
+  background: transparent;
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  color: var(--danger);
+}
+
+.account__btn--danger:hover:not(:disabled) {
+  border-color: var(--danger);
+  background: var(--danger-soft);
+}
+
+/* ---------- Разделители и секции ---------- */
+.account__section-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 12px 0 4px;
+}
+
+.account__section-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.account__section-title--danger {
+  color: var(--danger);
+}
+
+.account__danger-text {
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+/* ---------- Адаптив ---------- */
+@media (max-width: 640px) {
+  .account {
+    padding: 20px 16px;
+  }
+
+  .account__tabs {
+    width: 100%;
+  }
+
+  .account__tab {
+    flex: 1;
+    text-align: center;
+    padding: 8px 8px;
+  }
+
+  .account__form {
+    padding: 18px;
+  }
+
+  .account__avatar-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.account__profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.account__view-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.account__view-label {
+  color: var(--text-dim);
+}
+
+.account__view-value {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.account__edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}

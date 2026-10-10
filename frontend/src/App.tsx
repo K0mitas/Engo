@@ -6,6 +6,7 @@ import { CreateProjectPage } from '../page/CreateProjectPage';
 import { EditorPage } from '../page/EditorPage';
 import { CharactersPage } from '../page/CharactersPage';
 import { SettingsPage } from '../page/SettingsPage';
+import { AccountPage } from '../page/AccountPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/projects/update" element={<EditorPage />} />
             <Route path="/characters" element={<CharactersPage />} />
             <Route path="/settings" element={<SettingsPage />} />
+            <Route path="/account" element={<AccountPage />} />
           </Routes>
         </div>
       </div>

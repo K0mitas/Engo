@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import {
   mockCharacters,
 } from '../src/mockCharacters';
@@ -212,10 +212,10 @@ export function Header() {
       </div>
 
       <div className="header__actions">
-        <button type="button" className="header__icon-btn" aria-label="Уведомления">
-          🔔
-        </button>
+        <button type="button" className="header__icon-btn" aria-label="Уведомления"></button>
+        <NavLink to="/account">
         <button type="button" className="header__avatar" aria-label="Профиль" />
+        </NavLink>
       </div>
     </header>
   );
