@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import React from "react"
 
 type SettingsTab = 'providers' | 'video' | 'storage' | 'general';
 

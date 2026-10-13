@@ -54,12 +54,12 @@ export function CharactersPage() {
     setModal({ kind: 'none' });
   };
 
-  const handleRenameFolder = (folderId: string, name: string) => {
-    setFolders((prev) =>
-      prev.map((f) => (f.id === folderId ? { ...f, name } : f))
-    );
-    setModal({ kind: 'none' });
-  };
+  // const handleRenameFolder = (folderId: string, name: string) => {
+  //   setFolders((prev) =>
+  //     prev.map((f) => (f.id === folderId ? { ...f, name } : f))
+  //   );
+  //   setModal({ kind: 'none' });
+  // };
 
   const handleDeleteFolder = (id: string) => {
     setFolders((prev) => prev.filter((f) => f.id !== id));

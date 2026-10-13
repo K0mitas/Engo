@@ -79,7 +79,7 @@ function buildMockScenes(payload: NewProjectPayload): Scene[] {
 type Filter = 'all' | 'empty' | 'done' | 'failed';
 
 export function EditorPage() {
-  const { id } = useParams<{ id: string }>();
+  useParams<{ id: string; }>();
   const navigate = useNavigate();
 
   const payload: NewProjectPayload = useMemo(() => {
