@@ -6,19 +6,25 @@
   --bg-elev: #14141b;
   --bg-card: #16161f;
   --bg-input: #14141b;
+
   --border: #232330;
   --border-hover: #33334a;
+
   --text: #e8e8ef;
   --text-dim: #8a8a9a;
   --text-muted: #5f5f70;
+
   --accent: #6c5ce7;
   --accent-hover: #7d6ef0;
   --accent-soft: rgba(108, 92, 231, 0.15);
+
   --danger: #ff6b6b;
   --danger-soft: rgba(255, 107, 107, 0.1);
+
   --radius-sm: 6px;
   --radius: 8px;
   --radius-lg: 12px;
+
   --sidebar-w: 220px;
 }
 
@@ -105,6 +111,29 @@ a {
   min-width: 0;
   height: 100vh;
   overflow: hidden;
+}
+
+/* ==================== Loader ==================== */
+.app-loader {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.app-loader__spinner {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 3px solid rgba(108, 92, 231, 0.2);
+  border-top-color: var(--accent);
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ==================== Sidebar ==================== */
@@ -302,13 +331,25 @@ a {
 }
 
 .header__avatar {
+  display: grid;
+  place-items: center;
   width: 30px;
   height: 30px;
   border-radius: 50%;
   background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
   flex-shrink: 0;
+  text-decoration: none;
+  cursor: pointer;
 }
 
+.header__avatar-initial {
+  pointer-events: none;
+}
+
+/* ---------- Search dropdown ---------- */
 .search-dropdown {
   position: absolute;
   top: calc(100% + 6px);
@@ -486,6 +527,7 @@ a {
   gap: 16px;
 }
 
+/* ---------- Project card ---------- */
 .project-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -642,6 +684,19 @@ a {
   bottom: 14px;
 }
 
+.create-project__label-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.create-project__selected-count {
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+/* ---------- Style cards ---------- */
 .create-project__styles {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -689,6 +744,7 @@ a {
   font-weight: 500;
 }
 
+/* ---------- Chips ---------- */
 .chip-row {
   display: flex;
   flex-wrap: wrap;
@@ -717,6 +773,7 @@ a {
   color: var(--text);
 }
 
+/* ---------- Asset kind ---------- */
 .asset-kind-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -755,6 +812,7 @@ a {
   color: var(--text-dim);
 }
 
+/* ---------- Summary ---------- */
 .create-project__summary {
   display: flex;
   flex-direction: column;
@@ -779,18 +837,7 @@ a {
   font-weight: 500;
 }
 
-.create-project__label-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: 8px;
-}
-
-.create-project__selected-count {
-  font-size: 11px;
-  color: var(--text-dim);
-}
-
+/* ---------- Characters picker ---------- */
 .characters-cta {
   display: flex;
   align-items: center;
@@ -924,6 +971,7 @@ a {
   font-size: 12px;
 }
 
+/* ---------- Character group (модалка) ---------- */
 .character-group {
   display: flex;
   flex-direction: column;
@@ -1025,6 +1073,7 @@ a {
   text-overflow: ellipsis;
 }
 
+/* ---------- Footer ---------- */
 .create-project__footer {
   display: flex;
   justify-content: flex-end;
@@ -1146,6 +1195,7 @@ a {
   color: var(--text-muted);
 }
 
+/* ---------- Scene item ---------- */
 .scene-item {
   display: grid;
   grid-template-columns: 32px 56px 1fr;
@@ -1212,13 +1262,7 @@ a {
   border-radius: 50%;
   border: 2px solid rgba(108, 92, 231, 0.2);
   border-top-color: var(--accent);
-  animation: editor-spin 0.8s linear infinite;
-}
-
-@keyframes editor-spin {
-  to {
-    transform: rotate(360deg);
-  }
+  animation: spin 0.8s linear infinite;
 }
 
 .scene-item__info {
@@ -1242,7 +1286,7 @@ a {
   color: var(--text-muted);
 }
 
-/* ---------- Центр ---------- */
+/* ---------- Center ---------- */
 .editor__center {
   display: flex;
   flex-direction: column;
@@ -1372,7 +1416,7 @@ a {
   background: #ff5252;
 }
 
-/* ---------- Плеер ---------- */
+/* ---------- Player ---------- */
 .editor__video {
   position: relative;
   flex: 1;
@@ -1425,7 +1469,7 @@ a {
   border-radius: 50%;
   border: 3px solid rgba(108, 92, 231, 0.2);
   border-top-color: var(--accent);
-  animation: editor-spin 0.8s linear infinite;
+  animation: spin 0.8s linear infinite;
 }
 
 .editor__video-ratio {
@@ -1440,7 +1484,7 @@ a {
   z-index: 2;
 }
 
-/* ---------- Контролы ---------- */
+/* ---------- Controls ---------- */
 .editor__controls {
   display: flex;
   align-items: center;
@@ -1492,7 +1536,7 @@ a {
   gap: 10px;
 }
 
-/* ---------- Таймлайн ---------- */
+/* ---------- Timeline ---------- */
 .editor__timeline {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -1580,10 +1624,10 @@ a {
 .editor__clip--generating {
   background: linear-gradient(90deg, #1b1b26 25%, #23233a 50%, #1b1b26 75%);
   background-size: 200% 100%;
-  animation: editor-shimmer 1.5s linear infinite;
+  animation: shimmer 1.5s linear infinite;
 }
 
-@keyframes editor-shimmer {
+@keyframes shimmer {
   to {
     background-position: -200% 0;
   }
@@ -1599,7 +1643,7 @@ a {
   flex: 0 0 40px;
 }
 
-/* ---------- Правая панель ---------- */
+/* ---------- Right panel ---------- */
 .editor__panel {
   background: var(--bg-elev);
   border-left: 1px solid var(--border);
@@ -2019,6 +2063,29 @@ a {
   color: var(--text-dim);
 }
 
+.settings__footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+}
+
+.settings__btn {
+  background: var(--accent);
+  color: #fff;
+  padding: 9px 18px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+
+.settings__btn:hover {
+  background: var(--accent-hover);
+}
+
+/* ---------- Toggle ---------- */
 .toggle {
   position: relative;
   width: 36px;
@@ -2049,28 +2116,6 @@ a {
 
 .toggle--on .toggle__thumb {
   left: 18px;
-}
-
-.settings__footer {
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
-  margin-top: 8px;
-}
-
-.settings__btn {
-  background: var(--accent);
-  color: #fff;
-  padding: 9px 18px;
-  border-radius: var(--radius);
-  font-size: 13px;
-  font-weight: 500;
-  transition: background 0.15s;
-}
-
-.settings__btn:hover {
-  background: var(--accent-hover);
 }
 
 /* ==================== Characters ==================== */
@@ -2137,6 +2182,7 @@ a {
   background: var(--accent-hover);
 }
 
+/* ---------- Folders ---------- */
 .characters__folders {
   margin-bottom: 22px;
 }
@@ -2216,6 +2262,7 @@ a {
   color: var(--danger);
 }
 
+/* ---------- Grid ---------- */
 .characters__grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -2232,6 +2279,7 @@ a {
   border-radius: var(--radius);
 }
 
+/* ---------- Character card ---------- */
 .character-card {
   position: relative;
   background: var(--bg-card);
@@ -2445,6 +2493,7 @@ a {
   align-items: center;
 }
 
+/* ---------- Folder picker ---------- */
 .folder-picker {
   display: flex;
   flex-direction: column;
@@ -2479,6 +2528,7 @@ a {
   color: var(--text);
 }
 
+/* ---------- Character picker ---------- */
 .character-picker {
   display: flex;
   flex-direction: column;
@@ -2494,154 +2544,6 @@ a {
   gap: 10px;
 }
 
-/* ==================== Responsive ==================== */
-@media (max-width: 1280px) {
-  .editor {
-    grid-template-columns: 240px 1fr 300px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .projects__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .characters__grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media (max-width: 1024px) {
-  .projects__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .characters__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .editor {
-    grid-template-columns: 220px 1fr 260px;
-  }
-
-  .editor__player-title {
-    max-width: 120px;
-  }
-
-  .editor__ratios {
-    gap: 2px;
-  }
-
-  .editor__ratio {
-    padding: 3px 6px;
-    font-size: 10px;
-  }
-}
-
-@media (max-width: 900px) {
-  .editor {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
-    height: 100%;
-    overflow: hidden;
-  }
-
-  .editor__scenes {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-    max-height: 200px;
-  }
-
-  .editor__panel {
-    border-left: none;
-    border-top: 1px solid var(--border);
-    max-height: 260px;
-  }
-}
-
-@media (max-width: 768px) {
-  .sidebar {
-    display: none;
-  }
-
-  .projects,
-  .characters,
-  .create-project,
-  .generation,
-  .settings {
-    padding: 20px 16px;
-  }
-
-  .projects__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .projects__header,
-  .characters__header {
-    flex-direction: column;
-  }
-
-  .characters__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .header {
-    padding: 12px 16px;
-  }
-
-  .header__search-wrapper {
-    width: 100%;
-  }
-
-  .create-project__styles {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .asset-kind-row {
-    grid-template-columns: 1fr;
-  }
-
-  .generation__row {
-    grid-template-columns: 1fr;
-  }
-
-  .settings__tabs {
-    flex-wrap: wrap;
-  }
-
-  .provider-row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .editor__ratios {
-    order: 10;
-    flex: 1 1 100%;
-    justify-content: flex-start;
-  }
-
-  .editor__run-btn {
-    order: 4;
-    flex: 1 1 100%;
-    text-align: center;
-  }
-
-  .editor__progress {
-    order: 3;
-    flex: 1 1 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .characters__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .projects__grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* ==================== Account ==================== */
 .account {
   flex: 1;
@@ -2651,6 +2553,8 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .account__tabs {
@@ -2782,7 +2686,24 @@ a {
   text-decoration: underline;
 }
 
-/* ---------- Профиль: аватар ---------- */
+.account__error {
+  padding: 10px 12px;
+  background: var(--danger-soft);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  border-radius: var(--radius);
+  color: var(--danger);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* ---------- Profile ---------- */
+.account__profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
 .account__avatar-row {
   display: flex;
   align-items: center;
@@ -2806,13 +2727,33 @@ a {
   object-fit: cover;
 }
 
-.account__avatar-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+.account__avatar--initial {
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 28px;
+  font-weight: 600;
+  border: none;
 }
 
-/* ---------- Кнопки ---------- */
+.account__view-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.account__view-label {
+  color: var(--text-dim);
+}
+
+.account__view-value {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* ---------- Account buttons ---------- */
 .account__btn {
   background: var(--accent);
   color: #fff;
@@ -2854,7 +2795,7 @@ a {
   background: var(--danger-soft);
 }
 
-/* ---------- Разделители и секции ---------- */
+/* ---------- Account sections ---------- */
 .account__section-divider {
   height: 1px;
   background: var(--border);
@@ -2878,20 +2819,148 @@ a {
   margin-bottom: 8px;
 }
 
-/* ---------- Адаптив ---------- */
-@media (max-width: 640px) {
-  .account {
+.account__edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* ==================== Responsive ==================== */
+@media (max-width: 1280px) {
+  .editor {
+    grid-template-columns: 240px 1fr 300px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .projects__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .characters__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .projects__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .characters__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .editor {
+    grid-template-columns: 220px 1fr 260px;
+  }
+
+  .editor__player-title {
+    max-width: 120px;
+  }
+
+  .editor__ratios {
+    gap: 2px;
+  }
+
+  .editor__ratio {
+    padding: 3px 6px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 900px) {
+  .editor {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .editor__scenes {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    max-height: 200px;
+  }
+
+  .editor__panel {
+    border-left: none;
+    border-top: 1px solid var(--border);
+    max-height: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+
+  .projects,
+  .characters,
+  .create-project,
+  .generation,
+  .settings {
     padding: 20px 16px;
   }
 
-  .account__tabs {
+  .projects__grid,
+  .characters__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects__header,
+  .characters__header {
+    flex-direction: column;
+  }
+
+  .header {
+    padding: 12px 16px;
+  }
+
+  .header__search-wrapper {
     width: 100%;
   }
 
-  .account__tab {
-    flex: 1;
+  .create-project__styles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .asset-kind-row {
+    grid-template-columns: 1fr;
+  }
+
+  .generation__row {
+    grid-template-columns: 1fr;
+  }
+
+  .settings__tabs {
+    flex-wrap: wrap;
+  }
+
+  .provider-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .editor__ratios {
+    order: 10;
+    flex: 1 1 100%;
+    justify-content: flex-start;
+  }
+
+  .editor__run-btn {
+    order: 4;
+    flex: 1 1 100%;
     text-align: center;
-    padding: 8px 8px;
+  }
+
+  .editor__progress {
+    order: 3;
+    flex: 1 1 100%;
+  }
+
+  .account {
+    padding: 20px 16px;
   }
 
   .account__form {
@@ -2904,32 +2973,9 @@ a {
   }
 }
 
-.account__profile-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.account__view-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--border);
-  font-size: 13px;
-}
-
-.account__view-label {
-  color: var(--text-dim);
-}
-
-.account__view-value {
-  color: var(--text);
-  font-weight: 500;
-}
-
-.account__edit-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 8px;
+@media (max-width: 480px) {
+  .projects__grid,
+  .characters__grid {
+    grid-template-columns: 1fr;
+  }
 }

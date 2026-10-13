@@ -1,11 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  mockCharacters,
-  mockFolders,
-  type Character,
-  type Folder,
-} from '../src/mockCharacters';
+import {mockCharacters, mockFolders, type Character, type Folder} from '../src/mockCharacters';
 
 type StyleId = 'cinematic' | 'realistic' | 'anime' | 'cartoon';
 type AssetKind = 'image' | 'video' | 'mix';
@@ -109,18 +104,12 @@ export function CreateProjectPage() {
 
   return (
     <main className="create-project">
-      <button
-        type="button"
-        className="create-project__back"
-        onClick={() => navigate(-1)}
-      >
+      <button type="button" className="create-project__back" onClick={() => navigate(-1)}>
         ← Назад
       </button>
 
       <h1 className="create-project__title">Создание нового проекта</h1>
-      <p className="create-project__subtitle">
-        Опишите идею — AI разобьёт её на сцены и сгенерирует визуальный контент.
-      </p>
+      <p className="create-project__subtitle">Опишите идею — AI разобьёт её на сцены и сгенерирует визуальный контент.</p>
 
       {/* ---------- Название ---------- */}
       <div className="create-project__field">
@@ -156,12 +145,7 @@ export function CreateProjectPage() {
         <label className="create-project__label">Стиль</label>
         <div className="create-project__styles">
           {styles.map((style) => (
-            <button
-              key={style.id}
-              type="button"
-              className={`style-card ${selectedStyle === style.id ? 'style-card--active' : ''}`}
-              onClick={() => setSelectedStyle(style.id)}
-            >
+            <button key={style.id} type="button" className={`style-card ${selectedStyle === style.id ? 'style-card--active' : ''}`}  onClick={() => setSelectedStyle(style.id)}>
               <div className="style-card__preview">
                 <img src={style.preview} alt={style.label} />
               </div>
@@ -183,11 +167,7 @@ export function CreateProjectPage() {
         </div>
 
         {selectedCharacters.length === 0 ? (
-          <button
-            type="button"
-            className="characters-cta"
-            onClick={() => setIsPickerOpen(true)}
-          >
+          <button type="button" className="characters-cta" onClick={() => setIsPickerOpen(true)}>
             <span className="characters-cta__icon">👥</span>
             <span className="characters-cta__label">Выбрать персонажей</span>
           </button>
@@ -206,22 +186,13 @@ export function CreateProjectPage() {
                     {character.role}
                   </span>
                 </div>
-                <button
-                  type="button"
-                  className="selected-character__remove"
-                  onClick={() => removeCharacter(character.id)}
-                  aria-label={`Убрать ${character.name}`}
-                >
+                <button type="button" className="selected-character__remove" onClick={() => removeCharacter(character.id)} aria-label={`Убрать ${character.name}`}>
                   ✕
                 </button>
               </div>
             ))}
 
-            <button
-              type="button"
-              className="selected-character selected-character--add"
-              onClick={() => setIsPickerOpen(true)}
-            >
+            <button type="button" className="selected-character selected-character--add" onClick={() => setIsPickerOpen(true)}>
               <span className="selected-character__add-icon">+</span>
               <span className="selected-character__add-label">Добавить</span>
             </button>
@@ -252,12 +223,7 @@ export function CreateProjectPage() {
         </label>
         <div className="chip-row">
           {durationOptions.map((d) => (
-            <button
-              key={d}
-              type="button"
-              className={`chip ${sceneDuration === d ? 'chip--active' : ''}`}
-              onClick={() => setSceneDuration(d)}
-            >
+            <button key={d} type="button" className={`chip ${sceneDuration === d ? 'chip--active' : ''}`} onClick={() => setSceneDuration(d)}>
               {d} сек
             </button>
           ))}
